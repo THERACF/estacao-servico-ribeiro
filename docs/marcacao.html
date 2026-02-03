@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+        content="Pedido de marcação online na Estação de Serviço Ribeiro. Serviços de mecânica, pneus, revisões e lavagens.">
+    <meta name="keywords" content="marcação, oficina, ribeiro, pneus, óleo, revisão, lavagem, vieira do minho">
+    <title>Marcação | Estação de Serviço Ribeiro</title>
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&displayswap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e1bc1e09e4.js" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-white">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+
+                <a class="navbar-brand fw-bold text-uppercase" href="index.html">
+                    Estação de Serviço Ribeiro
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="servicos.html">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contactos.html">Contactos</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn btn-red" href="marcacao.html">Fazer Marcação</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- ================= HERO ================= -->
+    <section class="page-hero">
+        <div class="container">
+            <p class="booking-titulo mb-2">
+                <i class="fa fa-calendar-check-o me-2"></i>Pedido de marcação online
+            </p>
+
+            <h1 class="fw-bold  mb-3">Agendar serviço</h1>
+
+            <p class="col-lg-8">
+                Preencha o formulário abaixo. A marcação será confirmada pela nossa equipa
+                conforme disponibilidade de agenda.
+            </p>
+        </div>
+    </section>
+
+    <!-- ================= CONTEÚDO ================= -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row g-4">
+
+                <!-- ===== FORMULÁRIO ===== -->
+                <div class="col-lg-7">
+                    <div class="booking-box bg-white border rounded-4 shadow-sm p-4 p-md-5">
+
+                        <!-- Cabeçalho do form -->
+                        <div class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4">
+                            <div>
+                                <h2 class="h4 fw-bold mb-1">Dados da marcação</h2>
+                                <p class="text-secondary mb-0">
+                                    Campos obrigatórios assinalados
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="booking-note mb-4">
+                            <i class="fa fa-info-circle me-2"></i>
+                            Este pedido não confirma automaticamente a marcação.
+                        </div>
+
+                        <div id="bookingAlert" class="alert d-none"></div>
+
+                        <!-- FORM -->
+                        <form id="bookingForm" action="https://formspree.io/f/mqelnnbv" method="POST" novalidate>
+
+                            <input type="hidden" name="_subject" value="Novo pedido de marcação - Website">
+                            <input type="text" name="_gotcha" style="display:none">
+
+                            <div class="row g-3">
+
+                                <!-- Nome -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Nome *</label>
+                                    <div class="input-group booking-input">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                        <input type="text" id="nome" name="nome" class="form-control">
+                                    </div>
+                                    <small id="errNome" class="text-danger d-none"></small>
+                                </div>
+
+                                <!-- Email -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Email *</label>
+                                    <div class="input-group booking-input">
+                                        <span class="input-group-text"><i class="fa fa-envelope"></i></span>
+                                        <input type="email" id="email" name="email" class="form-control">
+                                    </div>
+                                    <small id="errEmail" class="text-danger d-none"></small>
+                                </div>
+
+                                <!-- Telefone -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Número *</label>
+                                    <div class="input-group booking-input">
+                                        <span class="input-group-text"><i class="fa fa-phone"></i></span>
+                                        <input type="tel" id="telefone" name="telefone" class="form-control">
+                                    </div>
+                                    <small id="errTelefone" class="text-danger d-none"></small>
+                                </div>
+
+                                <!-- Serviço -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Serviço *</label>
+                                    <div class="input-group booking-input">
+                                        <span class="input-group-text"><i class="fa fa-wrench"></i></span>
+                                        <select id="servico" name="servico" class="form-select">
+                                            <option value="" disabled selected>Escolher serviço</option>
+                                            <option>Lavagem</option>
+                                            <option>Lavagem + parafinar (chassi/motor)</option>
+                                            <option>Revisão</option>
+                                            <option>Serviço de Pneus</option>
+                                            <option>Mudança de óleo</option>
+                                            <option>Travões</option>
+                                            <option>Outro</option>
+                                        </select>
+                                    </div>
+                                    <small id="errServico" class="text-danger d-none"></small>
+                                </div>
+
+                                <!-- Marca -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Marca *</label>
+                                    <div class="input-group booking-input">
+                                        <span class="input-group-text"><i class="fa fa-car"></i></span>
+                                        <input type="text" id="marca" name="marca" class="form-control">
+                                    </div>
+                                    <small id="errMarca" class="text-danger d-none"></small>
+                                </div>
+
+                                <!-- Modelo -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Modelo *</label>
+                                    <div class="input-group booking-input">
+                                        <span class="input-group-text"><i class="fa fa-car"></i></span>
+                                        <input type="text" id="modelo" name="modelo" class="form-control">
+                                    </div>
+                                    <small id="errModelo" class="text-danger d-none"></small>
+                                </div>
+
+                                <!-- Matrícula -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Matrícula</label>
+                                    <div class="input-group booking-input">
+                                        <span class="input-group-text"><i class="fa fa-id-card"></i></span>
+                                        <input type="text" id="matricula" name="matricula" class="form-control">
+                                    </div>
+                                    <small id="errMatricula" class="text-danger d-none"></small>
+                                </div>
+
+                                <!-- Data -->
+                                <div class="col-md-6">
+                                    <label class="form-label fw-semibold">Data e hora *</label>
+                                    <div class="input-group booking-input">
+                                        <span class="input-group-text"><i class="fa fa-clock-o"></i></span>
+                                        <input type="datetime-local" id="dataHora" name="dataHora" class="form-control">
+                                    </div>
+                                    <small id="errDataHora" class="text-danger d-none"></small>
+                                </div>
+
+                                <!-- Observações -->
+                                <div class="col-12">
+                                    <label class="form-label fw-semibold">Observações</label>
+                                    <textarea id="observacoes" name="observacoes" rows="4" class="form-control"
+                                        placeholder="Informações adicionais (opcional)"></textarea>
+                                    <small id="errObs" class="text-danger d-none"></small>
+                                </div>
+
+                                <!-- Botão -->
+                                <div class="col-12">
+                                    <button type="submit" class="btn btn-red px-4">
+                                        Pedir marcação
+                                    </button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- ===== INFO LATERAL ===== -->
+                <div class="col-12 col-lg-5">
+                    <div class="contact-box p-4 p-md-5 border rounded-4 bg-white shadow-sm h-100">
+
+                        <h2 class="h4 fw-bold mb-3">Informações úteis</h2>
+
+                        <!-- Contactos -->
+                        <div class="mb-3">
+                            <p class="mb-1 fw-semibold">
+                                <i class="fa fa-envelope me-2"></i>Email
+                            </p>
+                            <a class="contact-link" href="mailto:estacaoribeiro@gmail.com">
+                                estacaoribeiro@gmail.com
+                            </a>
+                        </div>
+
+                        <div class="mb-3">
+                            <p class="mb-1 fw-semibold">
+                                <i class="fa fa-phone me-2"></i>Telefone
+                            </p>
+                            <a class="contact-link" href="tel:+351253640050">
+                                253 640 050
+                            </a>
+                            <p class="small text-secondary mt-1 mb-0">
+                                Para situações urgentes, recomendamos contacto telefónico.
+                            </p>
+                        </div>
+
+                        <div class="mb-4">
+                            <p class="mb-1 fw-semibold">
+                                <i class="fa fa-map-marker me-2"></i>Localização
+                            </p>
+                            <a class="contact-link" target="_blank"
+                                href="https://www.google.com/maps?q=Estação+de+Serviço+Ribeiro">
+                                Ver no Google Maps
+                            </a>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <!-- Horário -->
+                        <div class="mb-3">
+                            <p class="fw-semibold mb-2">
+                                <i class="fa fa-clock-o me-2"></i>Horário de funcionamento
+                            </p>
+                            <ul class="list-unstyled small text-secondary mb-0">
+                                <li>Segunda a Sexta: <strong>08:30 - 12:30</strong> <strong>/ 14:00 - 19:00</strong></li>
+                                <li>Sábado: <strong>08:30 - 13:00</strong></li>
+                                <li>Domingo: <strong>Encerrado</strong></li>
+                            </ul>
+                        </div>
+
+                        <hr class="my-4">
+
+                        <!-- Destaque -->
+                        <div class="alert alert-light border small mb-3">
+                            <i class="fa fa-bolt me-2 text-warning"></i>
+                            Normalmente respondemos aos pedidos de marcação no próprio dia útil.
+                        </div>
+
+                        <!-- Botões -->
+                        <div class="d-grid gap-2">
+                            <a class="btn btn-outline-dark" href="tel:+351253640050">
+                                <i class="fa fa-phone me-2"></i>Ligar agora
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer-site py-4">
+        <div class="container">
+            <div class="row gy-4 align-items-center">
+
+                <div class="col-md-4 text-center text-md-start">
+                    <p class="fw-bold mb-1">Estação de Serviço Ribeiro</p>
+                    <p class="footer-muted mb-0">
+                        &copy; 2026 Todos os direitos reservados
+                    </p>
+                </div>
+
+                <div class="col-md-4 text-center">
+                    <a href="#" class="footer-social fa fa-facebook"></a>
+                    <a href="#" class="footer-social fa fa-map-marker"></a>
+                </div>
+
+                <div class="col-md-4 text-center text-md-end">
+                    <a href="mailto:estacaoribeiro@gmail.com" class="footer-link d-block">
+                        estacaoribeiro@gmail.com
+                    </a>
+                    <a href="tel:+351253640050" class="footer-link">
+                        253 640 050
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/marcacao.js"></script>
+
+</body>
+
+</html>
