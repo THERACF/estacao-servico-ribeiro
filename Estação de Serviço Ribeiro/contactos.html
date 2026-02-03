@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contactos da Estação de Serviço Ribeiro. Fale connosco para informações, marcações e orçamentos.">
+    <meta name="keywords"
+        content="Ribeiro, contactos, marcação, orçamento, lavagens, pneus, óleos, Tabuaças, Vieira do Minho">
+    <title>Contactos | Estação de Serviço Ribeiro</title>
+
+    <link rel="icon" href="favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="imagens/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="imagens/favicon-16x16.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e1bc1e09e4.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="bg-white">
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+
+                <a class="navbar-brand fw-bold text-uppercase" href="index.html">
+                    Estação de Serviço Ribeiro
+                </a>
+                <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Abrir menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="mainNav">
+                    <ul class="navbar-nav ms-auto align-items-lg-center">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="servicos.html">Serviços</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active fw-bold" href="contactos.html">Contactos</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <a class="btn btn-red" href="marcacao.html">Fazer Marcação</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO (igual estilo do serviços, mas texto de contactos) -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 col-lg-8">
+                        <p class="page-hero-badge mb-3">Atendimento rápido • Resposta clara • Ajuda no que precisa</p>
+                        <h1 class="page-hero-title mb-3">Contacte-nos</h1>
+                        <p class="page-hero-subtitle mb-0">
+                            Precisa de informações, pedir um orçamento ou fazer uma marcação? Envie-nos uma mensagem e
+                            respondemos o
+                            mais rapidamente possível.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTEÚDO -->
+        <section class="py-5">
+            <div class="container">
+                <div class="row g-4">
+
+                    <!-- FORM -->
+                    <div class="col-12 col-lg-7">
+                        <div class="p-4 p-md-5 border rounded-4 bg-white shadow-sm">
+                            <h2 class="h4 fw-bold mb-3">Envie-nos uma mensagem</h2>
+                            <p class="text-secondary mb-4">
+                                Preencha o formulário e entraremos em contacto assim que possível.
+                            </p>
+
+                            <!-- Mensagem de feedback (fica acima do form) -->
+                            <div id="formAlert" class="alert d-none" role="alert"></div>
+
+                            <form id="contactForm" action="https://formspree.io/f/mqelnnbv" method="POST" novalidate>
+                                <input type="text" name="_gotcha" style="display:none">
+
+                                <div class="row g-3">
+
+                                    <!-- Nome -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="nome" class="form-label fw-semibold">Nome</label>
+                                        <input type="text" class="form-control" id="nome" name="nome" required>
+
+                                        <div class="invalid-feedback d-none" id="errNome"></div>
+                                        <div class="valid-feedback d-none" id="okNome"></div>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="email" class="form-label fw-semibold">Email</label>
+                                        <input type="email" class="form-control" id="email" name="email" required>
+
+                                        <div class="invalid-feedback d-none" id="errEmail"></div>
+                                        <div class="valid-feedback d-none" id="okEmail"></div>
+                                    </div>
+
+                                    <!-- Telefone -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="telefone" class="form-label fw-semibold">Número</label>
+                                        <input type="tel" class="form-control" id="telefone" name="telefone"
+                                            placeholder="Ex.: 9xx xxx xxx">
+
+                                        <div class="invalid-feedback d-none" id="errTelefone"></div>
+                                        <div class="valid-feedback d-none" id="okTelefone"></div>
+                                    </div>
+
+                                    <!-- Assunto -->
+                                    <div class="col-12 col-md-6">
+                                        <label for="assunto" class="form-label fw-semibold">Assunto</label>
+                                        <select class="form-select" id="assunto" name="assunto" required>
+                                            <option value="" selected disabled>Escolha um tema</option>
+                                            <option value="orcamento">Pedir orçamento</option>
+                                            <option value="lavagens">Lavagens</option>
+                                            <option value="lavagem_parafinar">Lavagem + parafinar (chassi/motor)</option>
+                                            <option value="revisao">Revisão</option>
+                                            <option value="pneus">Serviço de pneus</option>
+                                            <option value="oleos">Mudança de óleos</option>
+                                            <option value="travoes">Travões</option>
+                                            <option value="outro">Outro</option>
+                                        </select>
+
+                                        <div class="invalid-feedback d-none" id="errAssunto"></div>
+                                        <div class="valid-feedback d-none" id="okAssunto"></div>
+                                    </div>
+
+                                    <!-- Mensagem -->
+                                    <div class="col-12">
+                                        <label for="mensagem" class="form-label fw-semibold">Mensagem</label>
+                                        <textarea class="form-control" id="mensagem" name="mensagem" rows="5"
+                                            placeholder="Escreva aqui a sua mensagem..." required></textarea>
+
+                                        <div class="invalid-feedback d-none" id="errMensagem"></div>
+                                        <div class="valid-feedback d-none" id="okMensagem"></div>
+                                    </div>
+
+                                    <!-- Botão -->
+                                    <div class="col-12 d-flex gap-2 flex-wrap">
+                                        <button type="submit" class="btn btn-red px-4" id="btnEnviar">Enviar</button>
+                                    </div>
+
+                                </div>
+                            </form>
+
+
+                        </div>
+                    </div>
+
+                    <!-- INFO / CONTACTOS -->
+                    <div class="col-12 col-lg-5">
+                        <div class="contact-box p-4 p-md-5 border rounded-4 bg-white shadow-sm h-100">
+
+                            <h2 class="h4 fw-bold mb-3">Fale connosco</h2>
+
+                            <p class="text-secondary mb-4">
+                                Estamos disponíveis para esclarecer dúvidas, prestar informações
+                                ou ajudá-lo a escolher o melhor serviço para o seu veículo.
+                            </p>
+
+                            <!-- Contactos -->
+                            <div class="mb-3">
+                                <p class="mb-1 fw-semibold">
+                                    <i class="fa fa-envelope me-2"></i>Email
+                                </p>
+                                <a class="contact-link" href="mailto:estacaoribeiro@gmail.com">
+                                    estacaoribeiro@gmail.com
+                                </a>
+                            </div>
+
+                            <div class="mb-4">
+                                <p class="mb-1 fw-semibold">
+                                    <i class="fa fa-phone me-2"></i>Telefone
+                                </p>
+                                <a class="contact-link" href="tel:+351253640050">
+                                    253 640 050
+                                </a>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <!-- Horário simples -->
+                            <div class="mb-4">
+                                <p class="fw-semibold mb-2">
+                                    <i class="fa fa-clock-o me-2"></i>Horário
+                                </p>
+                                <p class="text-secondary small mb-1">
+                                    Segunda a Sexta: <strong>08:30 – 12:30 / 14:00 – 19:00</strong>
+                                </p>
+                                <p class="text-secondary small mb-1">
+                                    Sábado: <strong>08:30 – 13:00</strong>
+                                </p>
+                                <p class="text-secondary small mb-0">
+                                    Domingo: <strong>Encerrado</strong>
+                                </p>
+                            </div>
+
+                            <hr class="my-4">
+
+                            <!-- Mensagem humana -->
+                            <div class="alert alert-light border small mb-4">
+                                <i class="fa fa-comments me-2 text-secondary"></i>
+                                A nossa equipa terá todo o gosto em ajudá-lo.
+                            </div>
+
+                            <!-- Ações -->
+                            <div class="d-grid gap-2">
+                                <a class="btn btn-outline-dark" href="tel:+351253640050">
+                                    <i class="fa fa-phone me-2"></i>Ligar agora
+                                </a>
+                                <a class="btn btn-outline-dark"
+                                    href="https://www.google.com/maps?q=Estação+de+Serviço+Ribeiro" target="_blank">
+                                    <i class="fa fa-map-marker me-2"></i>Ver localização
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <hr class="border-secondary my-0">
+
+    <!-- FOOTER (igual ao teu) -->
+    <footer class="footer-site py-4">
+        <div class="container">
+            <div class="row align-items-center gy-4">
+                <div class="col-12 col-md-4 text-center text-md-start">
+                    <p id="footer-estacao" class="mb-1">Estação de Serviço Ribeiro</p>
+                    <p class="mb-0 footer-muted">
+                        &copy; 2026 Raúl Fernandes. <br> Todos os direitos reservados.
+                    </p>
+                </div>
+
+                <div class="col-12 col-md-4 text-center">
+                    <p class="mb-2 footer-title">Redes sociais</p>
+                    <a href="https://www.facebook.com/..." target="_blank" class="footer-social fa fa-facebook"
+                        aria-label="Facebook"></a>
+                    <a href="https://www.google.com/maps?q=Estação+de+Serviço+Ribeiro" target="_blank"
+                        class="footer-social fa fa-map-marker" aria-label="Google Maps"></a>
+                </div>
+
+                <div class="col-12 col-md-4 text-center text-md-end">
+                    <p class="mb-2 footer-title">Contacto</p>
+                    <p class="mb-1">
+                        <a href="mailto:estacaoribeiro@gmail.com" class="footer-link">estacaoribeiro@gmail.com</a>
+                    </p>
+                    <p class="mb-0">
+                        <a href="tel:+351253640050" class="footer-link">253 640 050</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/contactos.js"></script>
+</body>
+
+</html>
