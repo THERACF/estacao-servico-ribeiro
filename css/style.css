@@ -744,15 +744,43 @@ body {
     .service-actions {
         gap: .6rem !important;
     }
-    .navbar {
-        flex-wrap: nowrap !important;
+   .navbar .container {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
     }
 
     .navbar-brand {
         white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        max-width: calc(100% - 60px);
+        overflow: visible;
+        text-overflow: clip;
+        font-size: 0.90rem;
+        line-height: 1.1;
+        margin-right: .5rem;
+        flex: 0 1 auto;
+    }
+
+    .navbar-toggler {
+        margin-left: auto;
+        flex: 0 0 auto;
+    }
+
+    #mainNav.navbar-collapse {
+        flex-basis: 100%;
+        width: 100%;
+    }
+
+    #mainNav .navbar-nav {
+        width: 100%;
+        align-items: flex-start !important;
+        padding-top: .75rem;
+        gap: .25rem;
+    }
+
+    #mainNav .btn {
+        width: 100%;
+        text-align: center;
     }
 }
+
 
