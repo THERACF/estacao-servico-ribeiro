@@ -700,6 +700,11 @@ body {
     .sobre-img {
         max-width: 100%;
     }
+    
+    .sobre h2 {
+        font-size: 1.75rem;
+        font-weight: 700;
+    }
 
     .page-hero {
         padding: 28px 0;
@@ -750,3 +755,4 @@ body {
         max-width: calc(100% - 60px);
     }
 }
+
