@@ -754,7 +754,7 @@ body {
         white-space: nowrap;
         overflow: visible;
         text-overflow: clip;
-        font-size: 0.90rem;
+        font-size: 1rem;
         line-height: 1.1;
         margin-right: .5rem;
         flex: 0 1 auto;
@@ -782,5 +782,6 @@ body {
         text-align: center;
     }
 }
+
 
 
