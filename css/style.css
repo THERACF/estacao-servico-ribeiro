@@ -739,4 +739,14 @@ body {
     .service-actions {
         gap: .6rem !important;
     }
+    .navbar {
+        flex-wrap: nowrap !important;
+    }
+
+    .navbar-brand {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: calc(100% - 60px);
+    }
 }
